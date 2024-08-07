@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { useMutation } from '@apollo/client';
 import {
   Container,
   Col,
@@ -9,16 +8,9 @@ import {
   Row
 } from 'react-bootstrap';
 
-
 import Auth from '../utils/auth';
-// import { saveBook, searchGoogleBooks } from '../utils/API';
+import { saveBook, searchGoogleBooks } from '../utils/API';
 import { saveBookIds, getSavedBookIds } from '../utils/localStorage';
-import { SAVE_BOOK } from '../utils/mutations';
-import { GET_ME } from '../utils/queries';
-
-import { useParams, Link } from 'react-router-dom';
-
-
 
 const SearchBooks = () => {
   // create state for holding returned google api data
@@ -66,8 +58,6 @@ const SearchBooks = () => {
       console.error(err);
     }
   };
-
-
 
   // create function to handle saving a book to our database
   const handleSaveBook = async (bookId) => {
